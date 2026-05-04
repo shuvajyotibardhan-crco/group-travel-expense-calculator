@@ -1,0 +1,36 @@
+.settlement-panel { }
+
+.btn-settle {
+  background: #16a34a;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.btn-settle:hover { background: #15803d; }
+
+.settlement-result { margin-top: 0.75rem; }
+
+.settled-msg {
+  color: #16a34a;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.transfer-list {
+  padding-left: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.transfer-list li {
+  font-size: 0.95rem;
+  color: #1a1a2e;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid #eee;
+}

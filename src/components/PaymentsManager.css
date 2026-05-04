@@ -1,0 +1,2 @@
+/* Reuses shared styles from ExpenseManager.css via section-card class */
+.payment-form { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem; }

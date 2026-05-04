@@ -1,0 +1,13 @@
+.btn-save-csv {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.6);
+  padding: 0.45rem 1rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.btn-save-csv:hover {
+  background: rgba(255,255,255,0.15);
+}

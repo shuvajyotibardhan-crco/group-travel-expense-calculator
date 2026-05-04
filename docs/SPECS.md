@@ -233,13 +233,13 @@ Group Travel Expense Calculator/
 │   └── TASKS.md
 ├── .github/
 │   └── workflows/
-│       └── deploy.yml             # Build + Firebase Hosting deploy on push to main
+│       └── deploy.yml             # Build + Firebase Hosting deploy on push to main (project: travel-expense-calculato-e6c72)
 ├── .gitignore
 ├── .env.example                   # Placeholder (no env vars needed)
+├── .firebaserc                    # Firebase project alias (default: travel-expense-calculato-e6c72)
+├── firebase.json                  # Firebase Hosting config (public: dist/, SPA rewrite)
 ├── CLAUDE.md                      # Project context for future sessions
 ├── progress.md                    # Current task tracker
-├── firebase.json                  # Firebase Hosting config
-├── .firebaserc                    # Firebase project alias
 ├── index.html                     # Vite HTML entry
 ├── vite.config.js
 └── package.json

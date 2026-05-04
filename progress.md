@@ -17,7 +17,7 @@
 - App is fully implemented client-side
 - No Firebase project created yet
 - No deploy.yml workflow exists yet
-- GitHub repo: https://github.com/shuvajyotibardhan/group-travel-expense-calculator
+- GitHub repo: https://github.com/shuvajyotibardhan-crco/group-travel-expense-calculator
 
 ## Next Immediate Step
 - T17: Create Firebase project → add firebase.json + .firebaserc → create deploy.yml → add FIREBASE_SERVICE_ACCOUNT secret → push to main → watch deploy

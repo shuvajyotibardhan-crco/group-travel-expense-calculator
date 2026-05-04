@@ -4,7 +4,7 @@
 A browser-only React SPA for tracking shared travel expenses among a group. No backend, no login. State persists via CSV export/import. Users add travelers, log expenses with per-traveler splits, record ad-hoc repayments, and calculate the minimum transfers to settle the group.
 
 ## GitHub Repo
-https://github.com/shuvajyotibardhan/group-travel-expense-calculator
+https://github.com/shuvajyotibardhan-crco/group-travel-expense-calculator
 
 ## Tech Stack
 - React 18 + Vite

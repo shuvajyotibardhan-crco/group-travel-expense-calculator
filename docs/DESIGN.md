@@ -75,13 +75,13 @@ Additional payments form + payments table. Validates From ≠ To. Supports add, 
 Renders the "Settle" button and the settlement result list. Calls `computeBalances` and `settle` on click. Displays "Everyone is settled" or a numbered transfer list.
 
 ### `src/components/SaveButton.jsx`
-Always-visible "Save to CSV" button in the app header. Calls `src/io/csvExporter.js` to serialise current state and trigger browser download.
+Always-visible "Save to CSV" button in the app header. Calls `src/io/csvExporter.js` to serialise current state and save the file using the best available browser API.
 
 ### `src/io/csvParser.js`
 Parses an uploaded CSV file using PapaParse. Validates required columns; throws a descriptive error on malformed input. Returns a normalised state object.
 
 ### `src/io/csvExporter.js`
-Serialises current state to CSV rows using PapaParse. Handles the multi-section format (travelers, expenses, payments) in a single file with section headers.
+Serialises current state to CSV rows using PapaParse. Handles the multi-section format (travelers, expenses, payments) in a single file with section headers. Save strategy: `showSaveFilePicker` (Chrome/Edge — user picks folder and filename), then Web Share API (iOS/Android — OS share sheet for iCloud Files, Google Drive, etc.), then `<a download>` fallback.
 
 ---
 

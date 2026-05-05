@@ -173,7 +173,15 @@ Threshold of 0.01 handles floating-point dust so balances cleanly reach zero.
    (applicableTo array → comma-joined string)
 3. Serialise additionalPayments[] → CSV block with [PAYMENTS] header
 4. Concatenate all blocks with newline separators
-5. Trigger browser download as "trip-export-YYYY-MM-DD.csv"
+5. Build Blob (text/csv) and default filename "trip-export-YYYY-MM-DD.csv"
+6. Save strategy (tried in order):
+   a. If window.showSaveFilePicker exists: open OS save dialog with suggestedName
+      and accept filter ".csv"; write via FileSystemWritableFileStream; return.
+      If user cancels (AbortError): return silently.
+   b. Else if navigator.canShare({ files }) is true: call navigator.share({ files })
+      to show OS share sheet (iOS/Android); return.
+      If user cancels (AbortError): return silently.
+   c. Else: create <a download> element, click it, revoke object URL (fallback).
 ```
 
 ---
@@ -254,7 +262,9 @@ Group Travel Expense Calculator/
 | React 18 | Chrome 64+, Firefox 67+, Safari 12+, Edge 79+ |
 | `crypto.randomUUID()` | Chrome 92+, Firefox 95+, Safari 15.4+ |
 | File input / `<input type="file">` | All modern browsers |
-| `URL.createObjectURL()` (CSV download) | Chrome 23+, Firefox 19+, Safari 7+ |
+| `URL.createObjectURL()` (CSV download fallback) | Chrome 23+, Firefox 19+, Safari 7+ |
+| `showSaveFilePicker()` (folder+filename picker) | Chrome 86+, Edge 86+ only |
+| Web Share API with files (`navigator.share`) | iOS Safari 15+, Chrome for Android 89+ |
 | CSS Grid / Flexbox | All modern browsers |
 | ES2020 (optional chaining, nullish coalescing) | Chrome 80+, Firefox 74+, Safari 13.1+ |
 

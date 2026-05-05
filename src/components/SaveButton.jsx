@@ -11,7 +11,7 @@ export default function SaveButton() {
       travelers: state.travelers,
       expenses: state.expenses,
       additionalPayments: state.additionalPayments,
-    })
+    }).catch(() => {})
   }
 
   return (

@@ -30,7 +30,7 @@ A client-side web app that lets a group of travelers track shared expenses, reco
 3. Selecting "Load from CSV" shall open a file-picker restricted to `.csv` files.
 4. A valid CSV shall be parsed and all travelers, expenses, splits, and additional payments shall be restored exactly as saved.
 5. If the CSV is malformed or missing required columns, the app shall display a descriptive error message and must not load partial data.
-6. A "Save to CSV" button shall be available at all times once a trip is active, and must export all current data to a `.csv` file downloaded to the user's device.
+6. A "Save to CSV" button shall be available at all times once a trip is active, and must export all current data to a `.csv` file. On browsers that support the File System Access API (Chrome/Edge), the user shall be presented with a save dialog to choose the destination folder and filename before saving. On iOS/Android browsers that support the Web Share API, the OS share sheet shall be shown so the user can save to iCloud Files, Google Drive, OneDrive, or any other app. On other browsers the file must be downloaded automatically to the default downloads folder.
 
 ### Test Plan
 
@@ -39,7 +39,10 @@ A client-side web app that lets a group of travelers track shared expenses, reco
 | Click "New Trip" | Landing disappears; traveler-name screen shown; all state empty |
 | Click "Load from CSV", select valid file | All data restored; user lands on expense summary screen |
 | Click "Load from CSV", select corrupt file | Error banner shown; no data loaded; landing screen remains |
-| Click "Save to CSV" mid-session | Browser downloads a `.csv` containing all current trip data |
+| Click "Save to CSV" mid-session on Chrome/Edge | Save dialog opens; user chooses folder and filename; file written to chosen location |
+| Click "Save to CSV" mid-session on iOS Safari | OS share sheet appears; user can save to iCloud Files, Google Drive, OneDrive, etc. |
+| Click "Save to CSV" mid-session on other browsers | Browser auto-downloads a `.csv` to the default downloads folder |
+| Cancel the save dialog or share sheet | Nothing saved; no error shown |
 | Reload downloaded CSV via "Load from CSV" | All data restored identically |
 
 ---
